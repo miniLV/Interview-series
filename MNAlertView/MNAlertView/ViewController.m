@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor colorWithHexString:@"EEEEEE" alpha:0.67];
+    self.view.backgroundColor = [UIColor orangeColor];
 }
 
 
@@ -27,7 +27,6 @@
     
     MNAlertView *view = [MNAlertView mn_alertView];
     [self.view addSubview:view];
-    view.center = self.view.center;
     
 }
 

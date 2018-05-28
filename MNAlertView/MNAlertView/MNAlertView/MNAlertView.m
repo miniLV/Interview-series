@@ -12,7 +12,13 @@
 #import "UILabel+Utils.h"
 #import "UIView+HGCorner.h"
 
-@implementation MNAlertView
+@implementation MNAlertView{
+    UIView *_contentView;
+}
+
+//屏幕宽高
+#define ScreenH  [[UIScreen mainScreen] bounds].size.height
+#define ScreenW  [[UIScreen mainScreen] bounds].size.width
 
 static CGFloat viewW = 270;
 static CGFloat viewH = 281;
@@ -30,8 +36,12 @@ static CGFloat bottomMargin = 14;
     
     if (self = [super init]) {
         
+        self.backgroundColor = [UIColor colorWithHexString:@"EEEEEE" alpha:0.67];
+        self.frame = CGRectMake(0, 0, ScreenW, ScreenH);
+
+        
         [self p_createControls];
-        self.backgroundColor = [UIColor whiteColor];
+
     }
     return self;
 }
@@ -39,17 +49,29 @@ static CGFloat bottomMargin = 14;
 
 - (void)p_createControls{
     
-    self.frame = CGRectMake(0, 0, viewW, viewH);
-    //裁切圆角
-    [self hg_setAllCornerWithCornerRadius:10.0];
+
+    //contentView
+    [self p_createContentView];
     
     //scrollView
     [self p_createScrollView];
     
     //底部按钮
     [self p_createBottomBtn];
-
     
+}
+
+- (void)p_createContentView{
+    
+    UIView *contentView = [[UIView alloc]init];
+    contentView.frame = CGRectMake(0, 0, viewW, viewH);
+    contentView.backgroundColor = [UIColor whiteColor];
+    //裁切圆角
+    [contentView hg_setAllCornerWithCornerRadius:10.0];
+    contentView.center = self.center;
+    [self addSubview:contentView];
+    
+    _contentView = contentView;
 }
 
 - (void)p_createScrollView{
@@ -58,7 +80,7 @@ static CGFloat bottomMargin = 14;
     
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = CGRectMake(0, topMargin, viewW, scrollViewH);
-    [self addSubview:scrollView];
+    [_contentView addSubview:scrollView];
     
     UILabel *contentLabel = [[UILabel alloc]init];
     contentLabel.font = [UIFont systemFontOfSize:14];
@@ -107,7 +129,7 @@ static CGFloat bottomMargin = 14;
     [btn setTitleColor:[UIColor colorWithHexString:@"24C789"] forState:UIControlStateNormal];
     [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [btn addTarget:self action:@selector(p_clickBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:btn];
+    [_contentView addSubview:btn];
     
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
@@ -125,7 +147,7 @@ static CGFloat bottomMargin = 14;
 
 }
 
-
+#pragma mark - control click
 - (void)p_clickBtn{
     
     //移除当前控件
