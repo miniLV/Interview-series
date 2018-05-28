@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  ButtonRotateDemo
+//  MNAlertView
 //
-//  Created by 梁宇航 on 2017/9/29.
-//  Copyright © 2017年 梁宇航. All rights reserved.
+//  Created by Lyh on 2018/5/28.
+//  Copyright © 2018年 xmhccf. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
