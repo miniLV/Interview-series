@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MNAlertView.h"
+#import "UIColor+Hex.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.view.backgroundColor = [UIColor colorWithHexString:@"EEEEEE" alpha:0.67];
 }
 
 

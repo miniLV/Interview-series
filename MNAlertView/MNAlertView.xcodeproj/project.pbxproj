@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14B9610820BBD6B900173997 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9610320BBD6B900173997 /* UIColor+Hex.m */; };
+		14B9610920BBD6B900173997 /* UILabel+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9610520BBD6B900173997 /* UILabel+Utils.m */; };
+		14B9610A20BBD6B900173997 /* UIView+HGCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B9610720BBD6B900173997 /* UIView+HGCorner.m */; };
 		14F6D6A720BB995C00920C26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F6D6A620BB995C00920C26 /* AppDelegate.m */; };
 		14F6D6AA20BB995C00920C26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F6D6A920BB995C00920C26 /* ViewController.m */; };
 		14F6D6AD20BB995C00920C26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14F6D6AB20BB995C00920C26 /* Main.storyboard */; };
@@ -19,6 +22,12 @@
 
 /* Begin PBXFileReference section */
 		0EF0464E56ABF53973C342EC /* libPods-MNAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MNAlertView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B9610220BBD6B900173997 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		14B9610320BBD6B900173997 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		14B9610420BBD6B900173997 /* UILabel+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Utils.h"; sourceTree = "<group>"; };
+		14B9610520BBD6B900173997 /* UILabel+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Utils.m"; sourceTree = "<group>"; };
+		14B9610620BBD6B900173997 /* UIView+HGCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HGCorner.h"; sourceTree = "<group>"; };
+		14B9610720BBD6B900173997 /* UIView+HGCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HGCorner.m"; sourceTree = "<group>"; };
 		14F6D6A220BB995C00920C26 /* MNAlertView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNAlertView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14F6D6A520BB995C00920C26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14F6D6A620BB995C00920C26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +56,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14B9610120BBD6B900173997 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				14B9610220BBD6B900173997 /* UIColor+Hex.h */,
+				14B9610320BBD6B900173997 /* UIColor+Hex.m */,
+				14B9610420BBD6B900173997 /* UILabel+Utils.h */,
+				14B9610520BBD6B900173997 /* UILabel+Utils.m */,
+				14B9610620BBD6B900173997 /* UIView+HGCorner.h */,
+				14B9610720BBD6B900173997 /* UIView+HGCorner.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		14F6D69920BB995B00920C26 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +90,7 @@
 		14F6D6A420BB995C00920C26 /* MNAlertView */ = {
 			isa = PBXGroup;
 			children = (
+				14F6D6BE20BBCEF400920C26 /* MNAlertView */,
 				14F6D6A520BB995C00920C26 /* AppDelegate.h */,
 				14F6D6A620BB995C00920C26 /* AppDelegate.m */,
 				14F6D6A820BB995C00920C26 /* ViewController.h */,
@@ -77,6 +100,14 @@
 				14F6D6B020BB995C00920C26 /* LaunchScreen.storyboard */,
 				14F6D6B320BB995C00920C26 /* Info.plist */,
 				14F6D6B420BB995C00920C26 /* main.m */,
+			);
+			path = MNAlertView;
+			sourceTree = "<group>";
+		};
+		14F6D6BE20BBCEF400920C26 /* MNAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				14B9610120BBD6B900173997 /* Tools */,
 				14F6D6BB20BB99B400920C26 /* MNAlertView.h */,
 				14F6D6BC20BB99B400920C26 /* MNAlertView.m */,
 			);
@@ -193,8 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B9610920BBD6B900173997 /* UILabel+Utils.m in Sources */,
 				14F6D6AA20BB995C00920C26 /* ViewController.m in Sources */,
+				14B9610820BBD6B900173997 /* UIColor+Hex.m in Sources */,
 				14F6D6B520BB995C00920C26 /* main.m in Sources */,
+				14B9610A20BBD6B900173997 /* UIView+HGCorner.m in Sources */,
 				14F6D6BD20BB99B400920C26 /* MNAlertView.m in Sources */,
 				14F6D6A720BB995C00920C26 /* AppDelegate.m in Sources */,
 			);

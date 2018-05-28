@@ -8,12 +8,18 @@
 
 #import "MNAlertView.h"
 #import <Masonry.h>
+#import "UIColor+Hex.h"
+#import "UILabel+Utils.h"
+#import "UIView+HGCorner.h"
 
 @implementation MNAlertView
 
 static CGFloat viewW = 270;
 static CGFloat viewH = 281;
 static CGFloat bottomBtnH = 44;
+static CGFloat topMargin = 18;
+static CGFloat widthMargin = 15;
+static CGFloat bottomMargin = 14;
 
 + (instancetype)mn_alertView{
     
@@ -25,7 +31,7 @@ static CGFloat bottomBtnH = 44;
     if (self = [super init]) {
         
         [self p_createControls];
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -33,10 +39,9 @@ static CGFloat bottomBtnH = 44;
 
 - (void)p_createControls{
     
-
-    
     self.frame = CGRectMake(0, 0, viewW, viewH);
-    
+    //裁切圆角
+    [self hg_setAllCornerWithCornerRadius:10.0];
     
     //scrollView
     [self p_createScrollView];
@@ -49,10 +54,10 @@ static CGFloat bottomBtnH = 44;
 
 - (void)p_createScrollView{
     
-    CGFloat scrollViewH = viewH - bottomBtnH;
+    CGFloat scrollViewH = viewH - bottomBtnH - topMargin - bottomMargin;
     
     UIScrollView *scrollView = [[UIScrollView alloc]init];
-    scrollView.frame = CGRectMake(0, 0, viewW, scrollViewH);
+    scrollView.frame = CGRectMake(0, topMargin, viewW, scrollViewH);
     [self addSubview:scrollView];
     
     UILabel *contentLabel = [[UILabel alloc]init];
@@ -61,11 +66,10 @@ static CGFloat bottomBtnH = 44;
     
     [scrollView addSubview:contentLabel];
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.mas_equalTo(10);
-        make.bottom.mas_equalTo(-10);
-        make.width.mas_equalTo(viewW - 2 * 10);
+        make.top.bottom.mas_equalTo(0);
+        make.left.mas_equalTo(widthMargin);
+        make.width.mas_equalTo(viewW - 2 * widthMargin);
     }];
-    contentLabel.backgroundColor = [UIColor orangeColor];
     
     NSString *message = @"1、订单何时进入结算，规则如下：\n\
     1）短险产品：达到保单生效日期的订单；\n\
@@ -87,9 +91,12 @@ static CGFloat bottomBtnH = 44;
     4）25000元<当月提现<=50000元，当月扣税=当月提现*(1-20%)*30%-2000；\n\
     5）当月提现>50000元，当月扣税=当月提现*(1-20%)*40%-7000";
     
-    contentLabel.text = message;
-    
-    scrollView.contentSize = CGSizeMake(viewW, 750);
+
+    //设置行间距
+    [contentLabel setText:message
+              lineSpacing:4.0
+                 fontSize:[UIFont systemFontOfSize:14]
+                textColor:[UIColor colorWithHexString:@"494949"]];
     
 }
 
@@ -97,7 +104,9 @@ static CGFloat bottomBtnH = 44;
  
     UIButton *btn = [[UIButton alloc]init];
     [btn setTitle:@"我知道了" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor colorWithHexString:@"24C789"] forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [btn addTarget:self action:@selector(p_clickBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,14 +114,22 @@ static CGFloat bottomBtnH = 44;
         make.height.mas_equalTo(bottomBtnH);
     }];
     
-    [btn addTarget:self action:@selector(p_clickBtn) forControlEvents:UIControlEventTouchUpInside];
+    //顶部细线
+    UIView *grayLine = [[UIView alloc]init];
+    grayLine.backgroundColor = [UIColor colorWithHexString:@"EEEEEE"];
+    [btn addSubview:grayLine];
+    [grayLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.mas_equalTo(0);
+        make.height.mas_equalTo(0.5);
+    }];
+
 }
 
 
 - (void)p_clickBtn{
     
+    //移除当前控件
     [self removeFromSuperview];
-//    self = nil;
 }
 
 @end
