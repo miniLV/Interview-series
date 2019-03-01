@@ -30,4 +30,4 @@
 
 ## [isa&&Class&&meta-class](https://github.com/miniLV/Interview-series/blob/master/isa%26%26Class%26%26meta-class.md)
 
-## [Category && 关联对象](https://github.com/miniLV/Interview-series/blob/master/category%E5%88%86%E6%9E%90.md)
+## [Category && 关联对象](https://minilv.github.io/2019/02/27/category/)
