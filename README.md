@@ -35,3 +35,5 @@
 ## [KVO && KVC 常考点](https://minilv.github.io/2018/03/27/KVO&KVC/)
 
 ## [Block看我就够了](https://minilv.github.io/2019/02/27/BlockFile/)
+
+## [runtime消息机制](https://minilv.github.io/2019/03/17/Runtime-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6%E5%9C%9F%E5%91%B3%E8%AE%B2%E8%A7%A3/)
