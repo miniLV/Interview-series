@@ -55,3 +55,5 @@
 ## 面试专栏
 
 ### [iOS 初中级工程师简历指北](https://minilv.github.io/2019/05/05/iOS%E5%88%9D%E4%B8%AD%E7%BA%A7%E5%BC%80%E5%8F%91%E7%AE%80%E5%8E%86%E6%8C%87%E5%8C%97/)
+
+### [萌新iOS面试官迷你厂第一视角](https://minilv.github.io/2019/12/29/interviewer/)
